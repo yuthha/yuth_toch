@@ -1,0 +1,39 @@
+<div
+  class="relative flex flex-col items-center bg-pink-50 shadow-md border-2 border-pink-200 rounded-[2rem] m-3 p-6 w-80 h-[600px] cursor-pointer hover:shadow-xl hover:scale-105 transition-all duration-300"
+  [routerLink]="['/product', product.id]"
+>
+  <!-- Category Badge -->
+  <div class="absolute left-3 top-3 bg-gradient-to-r from-pink-400 to-purple-400 py-1 px-4 rounded-full text-white text-sm font-semibold shadow-md">
+    <span>{{product.category}}</span>
+  </div>
+
+  <!-- Product Image -->
+  <div class="bg-white rounded-2xl shadow-inner p-4 mt-6 flex justify-center">
+    <img [src]="product.image" alt="{{product.title}}" class="object-contain w-[180px] h-[250px] drop-shadow-md">
+  </div>
+
+  <!-- Title -->
+  <h1 class="line-clamp-2 text-center text-lg font-bold font-sans mt-4 text-purple-700">
+    {{product.title}}
+  </h1>
+
+  <!-- Price -->
+  <div class="flex justify-center my-4">
+    <p class="bg-yellow-200 py-1 px-4 rounded-full text-lg font-semibold text-gray-800 shadow">
+      {{product.price | currency}} <span class="text-sm text-gray-600">/ {{product.price | toKHR}}</span>
+    </p>
+  </div>
+
+  <!-- Description -->
+  <p class="line-clamp-3 text-gray-500 text-center text-sm italic px-2">
+    {{product.description}}
+  </p>
+
+  <!-- Buy Button -->
+  <button
+    class="bg-gradient-to-r from-pink-400 to-purple-400 text-white font-semibold rounded-full px-6 py-3 mt-auto shadow-md hover:scale-105 hover:shadow-lg transition-all"
+    (click)="addProductToCart(); $event.stopPropagation()"
+  >
+    💖 Buy Now
+  </button>
+</div>

@@ -1,0 +1,74 @@
+<div class="max-w-6xl mx-auto p-6 bg-pink-50 rounded-3xl mt-6 grid grid-cols-1 lg:grid-cols-3 gap-10 font-sans">
+
+  <!-- LEFT: Checkout Form -->
+  <div class="lg:col-span-2 space-y-10">
+    <h1 class="text-4xl font-bold text-pink-700 flex items-center gap-2">
+      Checkout <span class="text-2xl">💖</span>
+    </h1>
+
+    <!-- Shipping Details -->
+    <div class="bg-white p-6 rounded-3xl shadow-md">
+      <h2 class="text-2xl font-semibold mb-5 text-pink-600">📦 Shipping Information</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Full Name" class="w-full border-2 border-pink-200 rounded-full px-5 py-3 focus:ring-2 focus:ring-pink-400 outline-none" />
+        <input type="email" placeholder="Email" class="w-full border-2 border-pink-200 rounded-full px-5 py-3 focus:ring-2 focus:ring-pink-400 outline-none" />
+        <input type="text" placeholder="Phone Number" class="w-full border-2 border-pink-200 rounded-full px-5 py-3 focus:ring-2 focus:ring-pink-400 outline-none" />
+        <input type="text" placeholder="Address" class="w-full border-2 border-pink-200 rounded-full px-5 py-3 focus:ring-2 focus:ring-pink-400 outline-none" />
+        <div class="grid grid-cols-2 gap-4">
+          <input type="text" placeholder="City" class="border-2 border-pink-200 rounded-full px-5 py-3 focus:ring-2 focus:ring-pink-400 outline-none" />
+          <input type="text" placeholder="ZIP Code" class="border-2 border-pink-200 rounded-full px-5 py-3 focus:ring-2 focus:ring-pink-400 outline-none" />
+        </div>
+      </form>
+    </div>
+
+    <!-- Payment Method -->
+    <div class="bg-white p-6 rounded-3xl shadow-md">
+      <h2 class="text-2xl font-semibold mb-5 text-pink-600">💳 Payment Method</h2>
+      <div class="space-y-4">
+        <label class="flex items-center gap-3 p-4 border-2 border-pink-200 rounded-full cursor-pointer hover:bg-pink-50">
+          <input type="radio" name="payment" class="text-pink-500 focus:ring-pink-500" checked />
+          <span class="text-pink-700 font-medium">Credit / Debit Card</span>
+        </label>
+        <label class="flex items-center gap-3 p-4 border-2 border-pink-200 rounded-full cursor-pointer hover:bg-pink-50">
+          <input type="radio" name="payment" class="text-pink-500 focus:ring-pink-500" />
+          <span class="text-pink-700 font-medium">Bank Transfer 🏦</span>
+        </label>
+        <label class="flex items-center gap-3 p-4 border-2 border-pink-200 rounded-full cursor-pointer hover:bg-pink-50">
+          <input type="radio" name="payment" class="text-pink-500 focus:ring-pink-500" />
+          <span class="text-pink-700 font-medium">Cash on Delivery 💵</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Order Summary -->
+  <div class="bg-white p-6 rounded-3xl shadow-md border-2 border-pink-100">
+    <h2 class="text-2xl font-semibold mb-5 text-pink-600 border-b-2 border-pink-100 pb-3">🛒 Order Summary</h2>
+    
+    <div *ngFor="let item of cartItems" class="flex items-center justify-between mb-5">
+      <div class="flex items-center gap-4">
+        <img [src]="item.product.image" alt="{{item.product.title}}" class="w-14 h-14 object-cover rounded-2xl shadow" />
+        <div>
+          <p class="text-pink-700 font-medium">{{item.product.title}}</p>
+          <p class="text-gray-500 text-sm">Qty: {{item.quantity}}</p>
+        </div>
+      </div>
+      <p class="font-semibold text-pink-700">{{ (item.product.price * item.quantity) | currency }}</p>
+    </div>
+
+    <!-- Total -->
+    <div class="border-t-2 border-pink-100 pt-5 mt-5">
+      <div class="flex justify-between font-bold text-xl text-pink-700">
+        <span>Total:</span>
+        <span>{{ getTotal() | currency }}</span>
+      </div>
+    </div>
+
+    <!-- Checkout Button -->
+    <button
+      (click)="placeOrder()"
+      class="w-full mt-6 bg-pink-500 hover:bg-pink-600 text-white py-3 rounded-full text-lg font-bold shadow-md transition-all transform hover:scale-105">
+      ✨ Place Order ✨
+    </button>
+  </div>
+</div>

@@ -1,0 +1,68 @@
+<div class="max-w-5xl mx-auto p-6 bg-white shadow-2xl rounded-2xl mt-6">
+  <h1 class="text-3xl font-bold mb-6 text-gray-800 border-b pb-3 flex items-center gap-2">
+    🛒 Your Shopping Cart
+    <span class="text-sm font-normal text-gray-500">({{ cartItems.length }} items)</span>
+  </h1>
+
+  <div *ngIf="cartItems.length > 0; else emptyCart">
+    <div class="space-y-4">
+      <div *ngFor="let item of cartItems"
+           class="flex items-center justify-between p-4 border rounded-xl hover:shadow-lg transition-all bg-gray-50">
+
+        <!-- Product Info -->
+        <div class="flex items-center gap-4">
+          <img [src]="item.product.image" alt="{{ item.product.title }}"
+               class="w-20 h-20 object-contain rounded-lg border bg-white shadow-sm" />
+          <div>
+            <h2 class="text-lg font-semibold text-gray-800">{{ item.product.title }}</h2>
+            <p class="text-gray-500">Price: <span class="font-medium text-gray-700">{{ item.product.price | currency }}</span></p>
+            <p class="text-gray-500">Total: <span class="font-medium text-gray-700">{{ item.product.price * item.quantity | currency }}</span></p>
+          </div>
+        </div>
+
+        <!-- Quantity Controls -->
+        <div class="flex items-center gap-2">
+          <button (click)="decreaseQuantity(item.product.id)"
+                  class="bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full w-8 h-8 flex items-center justify-center font-bold">
+            -
+          </button>
+          <span class="w-8 text-center font-semibold">{{ item.quantity }}</span>
+          <button (click)="increaseQuantity(item.product.id)"
+                  class="bg-gray-200 hover:bg-gray-300 text-gray-700 rounded-full w-8 h-8 flex items-center justify-center font-bold">
+            +
+          </button>
+        </div>
+
+        <!-- Delete Button -->
+        <button (click)="removeItem(item.product.id)"
+                class="bg-red-500 text-white px-3 py-2 rounded-lg hover:bg-red-600 transition-all">
+          🗑
+        </button>
+      </div>
+    </div>
+
+    <!-- Cart Footer -->
+    <div class="mt-6 flex flex-col md:flex-row justify-between items-center border-t pt-4 gap-4">
+      <h2 class="text-2xl font-bold">Total: {{ getTotal() | currency }}</h2>
+      <div class="flex gap-4">
+        <button (click)="clearCart()" class="bg-gray-300 px-4 py-2 rounded-lg hover:bg-gray-400 transition-all">
+          🧹 Clear Cart
+        </button>
+        <button routerLink="/checkout" class="bg-green-500 text-white px-6 py-2 rounded-lg hover:bg-green-600 transition-all">
+          💳 Checkout
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Empty Cart State -->
+  <ng-template #emptyCart>
+    <div class="text-center py-12">
+      <p class="text-gray-500 text-lg">Your cart is empty 😢</p>
+      <a routerLink="/"
+         class="mt-4 inline-block bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition-all">
+        🛍 Continue Shopping
+      </a>
+    </div>
+  </ng-template>
+</div>

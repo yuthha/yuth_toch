@@ -1,0 +1,8 @@
+<div *ngIf="loading">Loading products...</div>
+
+<div *ngIf="!loading" class="flex flex-wrap justify-center">
+  <app-product-card
+    *ngFor="let item of products; trackBy: trackById"
+    [product]="item">
+  </app-product-card>
+</div>
