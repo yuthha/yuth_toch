@@ -1,61 +1,48 @@
+<!-- Navbar -->
 <nav class="bg-white border-b shadow-md px-4 py-3">
   <div class="flex justify-between items-center max-w-7xl mx-auto">
     <!-- Logo -->
     <a routerLink="/" class="text-xl font-bold text-blue-600 cursor-pointer">Welcome To ShopYUTH</a>
-    
 
     <!-- Desktop Menu -->
     <div class="hidden md:flex space-x-6">
       <a routerLink="/" class="text-gray-700 hover:text-blue-600 cursor-pointer">HomePage</a>
-      <a routerLink="/" class="text-gray-700 hover:text-blue-600 cursor-pointer">Product</a>
-      <a routerLink="/" class="text-gray-700 hover:text-blue-600 cursor-pointer">Contact</a>
+      <a routerLink="/product" class="text-gray-700 hover:text-blue-600 cursor-pointer">Product</a>
+      <a href="#contact" class="text-gray-700 hover:text-blue-600 cursor-pointer">Contact</a>
     </div>
 
     <!-- Icons -->
     <div class="hidden md:flex items-center space-x-4">
       <!-- Cart Button -->
       <button routerLink="/cart" class="relative cursor-pointer">
-        <!-- Badge -->
-        <span
-          *ngIf="cartCount > 0"
-          class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-lg"
-        >
+        <span *ngIf="cartCount > 0"
+          class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full shadow-lg">
           {{ cartCount }}
         </span>
-
         <!-- Cart Icon -->
         <svg class="w-6 h-6 text-gray-700 hover:text-blue-600" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 3h2l.4 2M7 13h14l-1.5 8H6L5 6H3"/>
-        </svg>
-      </button>
-
-      <!-- Info Icon -->
-      <button>
-        <svg class="w-6 h-6 text-gray-700 hover:text-blue-600" fill="none" stroke="currentColor" stroke-width="2"
-             viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"/>
-          <path d="M12 16v-4M12 8h.01"/>
         </svg>
       </button>
     </div>
 
-    <!-- Hamburger Icon -->
+    <!-- Mobile Menu -->
     <button class="md:hidden" (click)="toggleMobileMenu()">
       <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" stroke-width="2"
-           viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+        viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
         <path d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
   </div>
 
-  
-
   @if(mobileMenuOpen) {
     <div class="md:hidden mt-2 space-y-2 px-4">
       <a class="block text-gray-700 hover:text-blue-600">Home</a>
-      <a class="block text-gray-700 hover:text-blue-600">Shop</a>
-      <a class="block text-gray-700 hover:text-blue-600">Contact</a>
+      <a class="block text-gray-700 hover:text-blue-600">Product</a>
+      <a href="#contact" class="block text-gray-700 hover:text-blue-600">Contact</a>
     </div>
   }
 </nav>
+
+<!-- Main Content -->

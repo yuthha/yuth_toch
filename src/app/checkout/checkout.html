@@ -8,7 +8,7 @@
 
     <!-- Shipping Details -->
     <div class="bg-white p-6 rounded-3xl shadow-md">
-      <h2 class="text-2xl font-semibold mb-5 text-pink-600">📦 Shipping Information</h2>
+      <h2 class="text-2xl font-semibold mb-5 text-pink-600">📦 Shopping Information</h2>
       <form class="space-y-4">
         <input type="text" placeholder="Full Name" class="w-full border-2 border-pink-200 rounded-full px-5 py-3 focus:ring-2 focus:ring-pink-400 outline-none" />
         <input type="email" placeholder="Email" class="w-full border-2 border-pink-200 rounded-full px-5 py-3 focus:ring-2 focus:ring-pink-400 outline-none" />
@@ -72,3 +72,61 @@
     </button>
   </div>
 </div>
+<div class="max-w-5xl mx-auto p-10 font-sans text-center">
+  <!-- Header -->
+  <h1 class="text-3xl font-bold text-gray-800 mb-2">Contact Us</h1>
+  <p class="text-gray-500 mb-8">Any questions or remarks? Just write us a message!</p>
+
+  <!-- Contact Form -->
+  <form class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto mb-10">
+    <input type="email" placeholder="Enter your email address"
+      class="border border-gray-300 rounded-full px-5 py-3 focus:ring-2 focus:ring-teal-400 outline-none" />
+    <input type="text" placeholder="Enter your name"
+      class="border border-gray-300 rounded-full px-5 py-3 focus:ring-2 focus:ring-teal-400 outline-none" />
+
+    <div class="md:col-span-2">
+      <textarea rows="4" placeholder="Your message..."
+        class="w-full border border-gray-300 rounded-2xl px-5 py-3 focus:ring-2 focus:ring-teal-400 outline-none"></textarea>
+    </div>
+
+    <div class="md:col-span-2">
+      <button
+        class="w-full bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 rounded-full transition">
+        SEND MESSAGE
+      </button>
+    </div>
+  </form>
+
+  <!-- Info Boxes -->
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+    <!-- About -->
+    <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+      <div class="flex justify-center mb-3">
+        <div class="w-12 h-12 flex items-center justify-center bg-teal-500 text-white rounded-full text-2xl">🏃</div>
+      </div>
+      <h3 class="font-semibold text-gray-800 mb-2">ABOUT CLUB</h3>
+      <p class="text-gray-500 text-sm">Running Guide &amp; Wellness</p>
+    </div>
+
+    <!-- Phone -->
+    <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+      <div class="flex justify-center mb-3">
+        <div class="w-12 h-12 flex items-center justify-center bg-teal-500 text-white rounded-full text-2xl">📞</div>
+      </div>
+      <h3 class="font-semibold text-gray-800 mb-2">PHONE (LANDLINE)</h3>
+      <p class="text-gray-500 text-sm">+1 123 987 000</p>
+      <p class="text-gray-500 text-sm">+1 123 987 555</p>
+    </div>
+
+    <!-- Location -->
+    <div class="bg-gray-50 p-6 rounded-2xl shadow hover:shadow-lg transition">
+      <div class="flex justify-center mb-3">
+        <div class="w-12 h-12 flex items-center justify-center bg-teal-500 text-white rounded-full text-2xl">📍</div>
+      </div>
+      <h3 class="font-semibold text-gray-800 mb-2">OUR OFFICE LOCATION</h3>
+      <p class="text-gray-500 text-sm">The Interior Design Studio Company</p>
+      <p class="text-gray-500 text-sm">The Company St. #21, London, UK</p>
+    </div>
+  </div>
+</div>
+
